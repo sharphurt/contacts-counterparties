@@ -25,7 +25,10 @@ public class ContactSqlService(
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Patronymic = dto.Patronymic,
-            CounterpartyId = dto.CounterpartyId
+            CounterpartyId = dto.CounterpartyId,
+            Email = dto.Email,
+            UpdateTime = DateTime.Now,
+            CreationTime = DateTime.Now
         };
 
         return new CreateContactResponseDto(contactRepository.Create(model));
@@ -40,6 +43,7 @@ public class ContactSqlService(
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Patronymic = dto.Patronymic,
+            Email = dto.Email,
             CounterpartyId = dto.CounterpartyId,
             UpdateTime = DateTime.Now
         };

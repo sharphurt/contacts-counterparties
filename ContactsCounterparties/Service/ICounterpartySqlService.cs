@@ -1,6 +1,5 @@
 ﻿using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
-using ContactsCounterparties.Model;
 
 namespace ContactsCounterparties.Service;
 
@@ -8,6 +7,6 @@ public interface ICounterpartySqlService
 {
     public CounterpartyInformationDto GetCounterparty(int id);
 
-    public CreateCounterpartyResponseDto CreateCounterparty(CreateCounterpartyRequestDto dto);
+    public CreateCounterpartyResponseDto CreateCounterparty(CounterpartyRequestDto dto);
     IEnumerable<CounterpartyInformationDto> GetAllCounterparties();
 }

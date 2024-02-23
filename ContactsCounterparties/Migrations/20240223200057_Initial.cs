@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -16,7 +17,9 @@ namespace ContactsCounterparties.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +35,10 @@ namespace ContactsCounterparties.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Patronymic = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CounterpartyId = table.Column<int>(type: "int", nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CounterpartyId = table.Column<int>(type: "int", nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +46,6 @@ namespace ContactsCounterparties.Migrations
                     table.ForeignKey(
                         name: "FK_Contacts_Counterparties_CounterpartyId",
                         column: x => x.CounterpartyId,
-                        onUpdate: ReferentialAction.Cascade,
                         principalTable: "Counterparties",
                         principalColumn: "Id");
                 });

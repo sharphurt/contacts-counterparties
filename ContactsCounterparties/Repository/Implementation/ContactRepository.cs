@@ -1,5 +1,4 @@
 ﻿using ContactsCounterparties.Database;
-using ContactsCounterparties.Exception;
 using ContactsCounterparties.Model;
 using Microsoft.EntityFrameworkCore;
 

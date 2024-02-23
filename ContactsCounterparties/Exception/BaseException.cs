@@ -1,6 +1,6 @@
 ﻿namespace ContactsCounterparties.Exception;
 
-public class BaseException
+public class BaseException : System.Exception
 {
     public string Message { get; }
 }

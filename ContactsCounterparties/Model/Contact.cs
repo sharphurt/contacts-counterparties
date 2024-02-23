@@ -1,15 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsCounterparties.Model;
 
 [Table("Contacts")]
-public record Contact : BaseModel
+public class Contact : BaseModel
 {
     public required string FirstName { get; init; }
+
     public required string LastName { get; init; }
     public required string Patronymic { get; init; }
+
+    public required string Email { get; init; }
+
     public int? CounterpartyId { get; init; }
     public Counterparty? Counterparty { get; init; }
 }

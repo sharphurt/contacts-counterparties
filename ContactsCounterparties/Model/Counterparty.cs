@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContactsCounterparties.Model;
 
 [Table("Counterparties")]
-public record Counterparty : BaseModel
+public class Counterparty : BaseModel
 {
     public required string Name { get; init; }
     public IEnumerable<Contact>? Contacts { get; init; }

@@ -1,8 +1,8 @@
 ﻿namespace ContactsCounterparties.Model;
 
-public record BaseModel
+public class BaseModel
 {
-    public int Id { get; set; }
-    public DateTime CreationTime { get; } = DateTime.Now;
-    public DateTime UpdateTime { get; init; } = DateTime.Now;
+    public int Id { get; init; }
+    public DateTime CreationTime { get; init; }
+    public DateTime UpdateTime { get; init; }
 }

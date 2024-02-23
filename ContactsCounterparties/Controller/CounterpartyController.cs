@@ -1,7 +1,6 @@
 ﻿using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
-using ContactsCounterparties.Model;
 using ContactsCounterparties.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,7 +23,7 @@ public class CounterpartyController(ICounterpartySqlService sqlService) : Contro
     }
 
     [HttpPost]
-    public ApiResponse<CreateCounterpartyResponseDto> Post(CreateCounterpartyRequestDto requestDto)
+    public ApiResponse<CreateCounterpartyResponseDto> Post(CounterpartyRequestDto requestDto)
     {
         return new ApiResponse<CreateCounterpartyResponseDto>(sqlService.CreateCounterparty(requestDto));
     }

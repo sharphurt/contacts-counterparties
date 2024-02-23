@@ -1,7 +1,6 @@
 ﻿using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
-using ContactsCounterparties.Model;
 using ContactsCounterparties.Service;
 using Microsoft.AspNetCore.Mvc;
 

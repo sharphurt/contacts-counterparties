@@ -1,7 +1,6 @@
 ﻿using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
-using ContactsCounterparties.Model;
 
 namespace ContactsCounterparties.Service;
 

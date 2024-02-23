@@ -17,7 +17,7 @@ public class CounterpartySqlService(
         return mapper.Map<Counterparty, CounterpartyInformationDto>(counterparty);
     }
 
-    public CreateCounterpartyResponseDto CreateCounterparty(CreateCounterpartyRequestDto dto)
+    public CreateCounterpartyResponseDto CreateCounterparty(CounterpartyRequestDto dto)
     {
         var model = new Counterparty
         {
