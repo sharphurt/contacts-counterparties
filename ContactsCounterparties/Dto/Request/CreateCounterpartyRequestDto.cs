@@ -1,3 +1,6 @@
 ﻿namespace ContactsCounterparties.Dto.Request;
 
-public record CreateCounterpartyRequestDto(string Name);
+public class CreateCounterpartyRequestDto
+{
+    public string Name { get; init; }
+}

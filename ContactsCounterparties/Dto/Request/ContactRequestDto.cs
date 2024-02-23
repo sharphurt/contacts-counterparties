@@ -1,3 +1,9 @@
 ﻿namespace ContactsCounterparties.Dto.Request;
 
-public record ContactRequestDto(string FirstName, string LastName, string Patronymic, int? CounterpartyId);
+public class ContactRequestDto
+{
+    public string FirstName { get; init; }
+    public string LastName { get; init; }
+    public string Patronymic { get; init; }
+    public int? CounterpartyId { get; init; }
+}

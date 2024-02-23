@@ -1,3 +1,6 @@
 ﻿namespace ContactsCounterparties.Dto.Response;
 
-public record CreateContactResponseDto(int Id);
+public class CreateContactResponseDto(int id)
+{
+    public int Id { get; init; } = id;
+}

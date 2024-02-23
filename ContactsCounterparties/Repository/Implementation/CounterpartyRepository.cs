@@ -24,9 +24,9 @@ public class CounterpartyRepository(ApplicationDbContext context) : ICounterpart
 
     public Counterparty? GetById(int id)
     {
-        return context.Counterparties.Find(id);
+        return context.Counterparties.Include(c => c.Contacts).FirstOrDefault(c => c.Id == id);
     }
-    
+
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed)

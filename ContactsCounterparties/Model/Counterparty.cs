@@ -8,5 +8,10 @@ namespace ContactsCounterparties.Model;
 public record Counterparty : BaseModel
 {
     public required string Name { get; init; }
-    [JsonIgnore] public IEnumerable<Contact>? Contacts { get; init; }
+    public IEnumerable<Contact>? Contacts { get; init; }
+
+    public IEnumerable<int>? GetContactIds()
+    {
+        return Contacts?.Select(c => c.Id);
+    }
 }

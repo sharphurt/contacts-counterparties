@@ -10,6 +10,6 @@ public record Contact : BaseModel
     public required string FirstName { get; init; }
     public required string LastName { get; init; }
     public required string Patronymic { get; init; }
-    [JsonIgnore] public int? CounterpartyId { get; init; }
+    public int? CounterpartyId { get; init; }
     public Counterparty? Counterparty { get; init; }
 }

@@ -1,4 +1,6 @@
 using ContactsCounterparties.Database;
+using ContactsCounterparties.Dto;
+using ContactsCounterparties.Dto.Response;
 using ContactsCounterparties.Model;
 using ContactsCounterparties.Repository;
 using ContactsCounterparties.Repository.Implementation;
@@ -17,6 +19,11 @@ builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<ICounterpartyRepository, CounterpartyRepository>();
 builder.Services.AddScoped<IContactSqlService, ContactSqlService>();
 builder.Services.AddScoped<ICounterpartySqlService, CounterpartySqlService>();
+builder.Services.AddAutoMapper(expression =>
+{
+    expression.CreateMap<Contact, ContactInformationDto>();
+    expression.CreateMap<Counterparty, CounterpartyInformationDto>();
+});
 
 builder.Services.AddMvc();
 

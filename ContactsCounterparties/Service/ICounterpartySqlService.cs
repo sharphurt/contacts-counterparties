@@ -6,7 +6,8 @@ namespace ContactsCounterparties.Service;
 
 public interface ICounterpartySqlService
 {
-    public Counterparty GetById(int id);
+    public CounterpartyInformationDto GetCounterparty(int id);
 
     public CreateCounterpartyResponseDto CreateCounterparty(CreateCounterpartyRequestDto dto);
+    IEnumerable<CounterpartyInformationDto> GetAllCounterparties();
 }

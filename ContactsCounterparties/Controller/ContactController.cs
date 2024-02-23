@@ -8,24 +8,31 @@ using Microsoft.AspNetCore.Mvc;
 namespace ContactsCounterparties.Controller;
 
 [ApiController, Route("api/contact")]
-public class ContactController(IContactSqlService contactSqlService) : ControllerBase
+public class ContactController(IContactSqlService sqlService) : ControllerBase
 {
     [HttpGet]
-    public ApiResponse<Contact> Get([FromQuery] int id)
+    public ApiResponse<ContactInformationDto> Get([FromQuery] int id)
     {
-        return new ApiResponse<Contact>(contactSqlService.GetContact(id));
+        return new ApiResponse<ContactInformationDto>(sqlService.GetContact(id));
     }
 
     [HttpPost]
     public ApiResponse<CreateContactResponseDto> Post(ContactRequestDto requestDto)
     {
-        return new ApiResponse<CreateContactResponseDto>(contactSqlService.CreateContact(requestDto));
+        return new ApiResponse<CreateContactResponseDto>(sqlService.CreateContact(requestDto));
     }
 
     [HttpPatch]
-    public ApiResponse<UpdateContactResponseDto> Update([FromQuery] int id, ContactRequestDto requestDto)
+    public ApiResponse<SuccessfulOperationResponseDto> Update([FromQuery] int id, ContactRequestDto requestDto)
     {
-        contactSqlService.UpdateContact(id, requestDto);
-        return new ApiResponse<UpdateContactResponseDto>(new UpdateContactResponseDto());
+        sqlService.UpdateContact(id, requestDto);
+        return new ApiResponse<SuccessfulOperationResponseDto>(new SuccessfulOperationResponseDto());
+    }
+    
+    [HttpDelete]
+    public ApiResponse<SuccessfulOperationResponseDto> Delete([FromQuery] int id)
+    {
+        sqlService.DeleteContact(id);
+        return new ApiResponse<SuccessfulOperationResponseDto>(new SuccessfulOperationResponseDto());
     }
 }
