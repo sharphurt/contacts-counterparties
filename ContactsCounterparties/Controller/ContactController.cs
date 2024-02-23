@@ -11,15 +11,21 @@ namespace ContactsCounterparties.Controller;
 public class ContactController(IContactSqlService contactSqlService) : ControllerBase
 {
     [HttpGet]
-    [Route("{id:int}")]
-    public ApiResponse<Contact> Get(int id)
+    public ApiResponse<Contact> Get([FromQuery] int id)
     {
         return new ApiResponse<Contact>(contactSqlService.GetContact(id));
     }
 
     [HttpPost]
-    public ApiResponse<CreateContactResponseDto> Post(CreateContactRequestDto requestDto)
+    public ApiResponse<CreateContactResponseDto> Post(ContactRequestDto requestDto)
     {
         return new ApiResponse<CreateContactResponseDto>(contactSqlService.CreateContact(requestDto));
+    }
+
+    [HttpPatch]
+    public ApiResponse<UpdateContactResponseDto> Update([FromQuery] int id, ContactRequestDto requestDto)
+    {
+        contactSqlService.UpdateContact(id, requestDto);
+        return new ApiResponse<UpdateContactResponseDto>(new UpdateContactResponseDto());
     }
 }

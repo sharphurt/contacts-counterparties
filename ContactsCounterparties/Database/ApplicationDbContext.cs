@@ -3,10 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContactsCounterparties.Database;
 
-public class ApplicationDbContext(DbContextOptions options) : DbContext(options)
+public class ApplicationDbContext : DbContext
 {
     public DbSet<Contact> Contacts { get; init; }
     public DbSet<Counterparty> Counterparties { get; init; }
+
+    public ApplicationDbContext(DbContextOptions options) : base(options)
+    {
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

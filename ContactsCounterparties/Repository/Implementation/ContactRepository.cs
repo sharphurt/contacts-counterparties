@@ -31,6 +31,7 @@ public class ContactRepository(ApplicationDbContext context) : IContactRepositor
     {
         context.Entry(model).State = EntityState.Modified;
         context.SaveChanges();
+        context.Entry(model).State = EntityState.Detached;
     }
 
     public void Delete(int id)
@@ -39,7 +40,7 @@ public class ContactRepository(ApplicationDbContext context) : IContactRepositor
         context.Contacts.Remove(entity);
         context.SaveChanges();
     }
-    
+
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed)

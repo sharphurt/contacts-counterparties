@@ -13,10 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IContactRepository, ContactRepository>();
-builder.Services.AddTransient<ICounterpartyRepository, CounterpartyRepository>();
-builder.Services.AddTransient<IContactSqlService, ContactSqlService>();
-builder.Services.AddTransient<ICounterpartySqlService, CounterpartySqlService>();
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<ICounterpartyRepository, CounterpartyRepository>();
+builder.Services.AddScoped<IContactSqlService, ContactSqlService>();
+builder.Services.AddScoped<ICounterpartySqlService, CounterpartySqlService>();
 
 builder.Services.AddMvc();
 

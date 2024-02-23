@@ -8,5 +8,6 @@ namespace ContactsCounterparties.Service;
 public interface IContactSqlService
 {
     public Contact GetContact(int id);
-    public CreateContactResponseDto CreateContact(CreateContactRequestDto dto);
+    public CreateContactResponseDto CreateContact(ContactRequestDto dto);
+    public void UpdateContact(int id, ContactRequestDto dto);
 }

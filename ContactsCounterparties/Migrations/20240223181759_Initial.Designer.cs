@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactsCounterparties.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240223172041_Initial")]
+    [Migration("20240223181759_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

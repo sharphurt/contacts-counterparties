@@ -16,7 +16,7 @@ public class ContactSqlService(
         return contactRepository.GetById(id) ?? throw new EntityNotFoundException();
     }
 
-    public CreateContactResponseDto CreateContact(CreateContactRequestDto dto)
+    public CreateContactResponseDto CreateContact(ContactRequestDto dto)
     {
         var model = new Contact
         {
@@ -29,13 +29,20 @@ public class ContactSqlService(
         return new CreateContactResponseDto(contactRepository.Create(model));
     }
 
-    /*public void UpdateContact(int id, ContactDto dto)
+    public void UpdateContact(int id, ContactRequestDto dto)
     {
-        var counterparty = GetCounterpartyOrNull(dto.CounterpartyId);
         var model = GetContact(id);
-        var updated = new Contact(model.Id, dto.FirstName, dto.LastName, dto.Patronymic, counterparty);
+        var updated = new Contact
+        {
+            Id = model.Id,
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            Patronymic = dto.Patronymic,
+            CounterpartyId = dto.CounterpartyId
+        };
+        
         contactRepository.Update(updated);
-    }*/
+    }
 
     public void DeleteContact(int id)
     {

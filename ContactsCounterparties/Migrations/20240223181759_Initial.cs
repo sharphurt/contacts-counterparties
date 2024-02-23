@@ -40,6 +40,7 @@ namespace ContactsCounterparties.Migrations
                     table.ForeignKey(
                         name: "FK_Contacts_Counterparties_CounterpartyId",
                         column: x => x.CounterpartyId,
+                        onUpdate: ReferentialAction.Cascade,
                         principalTable: "Counterparties",
                         principalColumn: "Id");
                 });
