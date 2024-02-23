@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  web_application:
+    build:
+      context: "C:\\Users\\sharphurt\\RiderProjects\\ContactsCounterparties"
+      dockerfile: "ContactsCounterparties/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/ContactsCounterparties.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "application:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\sharphurt\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\sharphurt\\RiderProjects\\ContactsCounterparties\\ContactsCounterparties:/app:rw"
+    - "C:\\Users\\sharphurt\\RiderProjects\\ContactsCounterparties:/src:rw"
+    working_dir: "/app"
