@@ -5,7 +5,6 @@ using ContactsCounterparties.Dto.Response;
 using ContactsCounterparties.Exception;
 using ContactsCounterparties.Model;
 using ContactsCounterparties.Repository;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ContactsCounterparties.Service.Implementation;
 

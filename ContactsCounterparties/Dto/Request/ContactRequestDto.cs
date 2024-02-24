@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ContactsCounterparties.Attribute;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsCounterparties.Dto.Request;
 

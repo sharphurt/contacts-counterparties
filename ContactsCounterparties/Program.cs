@@ -1,6 +1,3 @@
-using System.Net.Mime;
-using System.Text.Json;
-using ContactsCounterparties.Attribute;
 using ContactsCounterparties.Database;
 using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Response;
@@ -10,9 +7,7 @@ using ContactsCounterparties.Repository;
 using ContactsCounterparties.Repository.Implementation;
 using ContactsCounterparties.Service;
 using ContactsCounterparties.Service.Implementation;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

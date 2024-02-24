@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContactsCounterparties.Model;
 

@@ -1,7 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ContactsCounterparties.Dto;
 

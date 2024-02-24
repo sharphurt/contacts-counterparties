@@ -1,6 +1,4 @@
-﻿using System.Resources;
-
-namespace ContactsCounterparties.Exception;
+﻿namespace ContactsCounterparties.Exception;
 
 public class BaseException : System.Exception
 {

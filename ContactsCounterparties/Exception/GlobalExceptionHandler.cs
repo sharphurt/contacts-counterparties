@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using Azure.Core;
 using ContactsCounterparties.Dto;
 using Microsoft.AspNetCore.Diagnostics;
 

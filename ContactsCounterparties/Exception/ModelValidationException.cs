@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Resources;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ContactsCounterparties.Exception;
 

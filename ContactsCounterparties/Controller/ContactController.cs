@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using ContactsCounterparties.Dto;
+﻿using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
 using ContactsCounterparties.Exception;
