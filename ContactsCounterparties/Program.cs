@@ -1,11 +1,18 @@
+using System.Net.Mime;
+using System.Text.Json;
+using ContactsCounterparties.Attribute;
 using ContactsCounterparties.Database;
 using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Response;
+using ContactsCounterparties.Exception;
 using ContactsCounterparties.Model;
 using ContactsCounterparties.Repository;
 using ContactsCounterparties.Repository.Implementation;
 using ContactsCounterparties.Service;
 using ContactsCounterparties.Service.Implementation;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,15 +33,15 @@ builder.Services.AddAutoMapper(expression =>
 });
 
 builder.Services.AddMvc();
+builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 var app = builder.Build();
+app.UseExceptionHandler(exceptionHandlerApp => { exceptionHandlerApp.Run(GlobalExceptionHandler.HandleException); });
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
 if (app.Environment.IsDevelopment())
 {

@@ -11,7 +11,8 @@ public class UniqueNameAttribute : ValidationAttribute
         if (value is null)
             return new ValidationResult("Name cannot be null");
 
-        var context = validationContext.GetService(typeof(ApplicationDbContext)) ?? throw new InternalServerException();
+        var context = validationContext.GetService(typeof(ApplicationDbContext)) ??
+                      throw new InternalServerException(nameof(ExistingCounterpartyIdAttribute), "Cannot get ApplicationDbContext");
 
         return (context as ApplicationDbContext).Counterparties.Any(a => a.Name == value.ToString())
             ? new ValidationResult("Name exists")

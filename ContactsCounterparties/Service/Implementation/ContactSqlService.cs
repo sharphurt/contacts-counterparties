@@ -5,17 +5,18 @@ using ContactsCounterparties.Dto.Response;
 using ContactsCounterparties.Exception;
 using ContactsCounterparties.Model;
 using ContactsCounterparties.Repository;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ContactsCounterparties.Service.Implementation;
 
 public class ContactSqlService(
     IContactRepository contactRepository,
-    ICounterpartySqlService counterpartySqlService,
     IMapper mapper) : IContactSqlService
 {
     public ContactInformationDto GetContact(int id)
     {
-        return mapper.Map<ContactInformationDto>(contactRepository.GetById(id) ?? throw new EntityNotFoundException());
+        var contact = contactRepository.GetById(id) ?? throw new EntityNotFoundException(nameof(ContactSqlService), id.ToString());
+        return mapper.Map<ContactInformationDto>(contact);
     }
 
     public CreateContactResponseDto CreateContact(ContactRequestDto dto)

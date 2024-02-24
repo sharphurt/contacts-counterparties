@@ -13,7 +13,7 @@ public class CounterpartySqlService(
 {
     public CounterpartyInformationDto GetCounterparty(int id)
     {
-        var counterparty = counterpartyRepository.GetById(id) ?? throw new EntityNotFoundException();
+        var counterparty = counterpartyRepository.GetById(id) ?? throw new EntityNotFoundException(nameof(CounterpartySqlService), id.ToString());
         return mapper.Map<Counterparty, CounterpartyInformationDto>(counterparty);
     }
 

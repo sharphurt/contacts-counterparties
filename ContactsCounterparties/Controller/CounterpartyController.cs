@@ -1,6 +1,7 @@
 ﻿using ContactsCounterparties.Dto;
 using ContactsCounterparties.Dto.Request;
 using ContactsCounterparties.Dto.Response;
+using ContactsCounterparties.Exception;
 using ContactsCounterparties.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,9 @@ public class CounterpartyController(ICounterpartySqlService sqlService) : Contro
     [HttpPost]
     public ApiResponse<CreateCounterpartyResponseDto> Post(CounterpartyRequestDto requestDto)
     {
+        if (!ModelState.IsValid)
+            throw new ModelValidationException(nameof(CounterpartyController), ModelState);
+
         return new ApiResponse<CreateCounterpartyResponseDto>(sqlService.CreateCounterparty(requestDto));
     }
 }
